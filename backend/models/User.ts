@@ -30,6 +30,32 @@ const userSchema = new mongoose.Schema<HydratedDocument<UserFields>, UserModel, 
         type: String,
         required: true
     },
+    displayName: {
+        type: String,
+        required: true,
+        unique: true,
+        validate: {
+            validator: async function (this: HydratedDocument<UserFields>, displayName: string): Promise<boolean> {
+                if (!this.isModified('displayName')) return true;
+                const user: HydratedDocument<UserFields> | null = await User.findOne({displayName});
+                return !Boolean(user);
+            },
+            message: 'This display name is already been registered',
+        }
+    },
+    phoneNumber: {
+        type: String,
+        required: true,
+        unique: true,
+        validate: {
+            validator: async function (this: HydratedDocument<UserFields>, phoneNumber: string): Promise<boolean> {
+                if (!this.isModified('phoneNumber')) return true;
+                const user: HydratedDocument<UserFields> | null = await User.findOne({phoneNumber});
+                return !Boolean(user);
+            },
+            message: 'This phone number is already been registered',
+        }
+    },
     token: {
         type: String,
         required: true,
