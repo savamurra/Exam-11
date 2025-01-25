@@ -27,6 +27,9 @@ export const selectProducts = (state: RootState) => state.products.products;
 export const selectLoading = (state: RootState) => state.products.getLoading;
 export const selectOneProduct = (state: RootState) => state.products.oneProduct;
 export const selectCreateLoading = (state: RootState) => state.products.createLoading;
+export const selectDeleteLoading = (state: RootState) => state.products.deleteLoading;
+export const selectOneLoading = (state: RootState) => state.products.getOneLoading;
+
 
 const productsSlice = createSlice({
     name: "product",

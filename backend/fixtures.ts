@@ -58,10 +58,26 @@ const run = async () => {
             sellerInfo: user[0]._id
         },
         {
+            title: 'Asus',
+            description: 'Tuf Gaming',
+            price: 700,
+            image: 'fixtures/asus.jpg',
+            category: category[0]._id,
+            sellerInfo: user[0]._id
+        },
+        {
             title: 'Bmw',
             description: 'M5 competion',
             price: 1000,
             image: 'fixtures/bmw.jpg',
+            category: category[1]._id,
+            sellerInfo: user[0]._id
+        },
+        {
+            title: 'Mersedes',
+            description: 'w222',
+            price: 7000,
+            image: 'fixtures/mersedes.jpg',
             category: category[1]._id,
             sellerInfo: user[0]._id
         },
@@ -74,10 +90,26 @@ const run = async () => {
             sellerInfo: user[1]._id
         },
         {
+            title: 'Adidas',
+            description: 'Predator',
+            price: 350,
+            image: 'fixtures/predator.jpg',
+            category: category[2]._id,
+            sellerInfo: user[1]._id
+        },
+        {
             title: 'Iphone',
             description: '16 pro max',
             price: 1500,
             image: 'fixtures/iphone.jpg',
+            category: category[3]._id,
+            sellerInfo: user[1]._id
+        },
+        {
+            title: 'Samsung',
+            description: 'S24 Ultra',
+            price: 1700,
+            image: 'fixtures/samsung.jpg',
             category: category[3]._id,
             sellerInfo: user[1]._id
         },
