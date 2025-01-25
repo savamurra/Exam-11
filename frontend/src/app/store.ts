@@ -10,6 +10,8 @@ import {
     REHYDRATE,
 } from "redux-persist/es/constants";
 import {usersReducer} from "../features/users/userSlice.ts";
+import {productsReducer} from "../features/products/productsSlice.ts";
+import {categoriesReducer} from "../features/categories/categorySlice.ts";
 
 const usersPersistConfig = {
     key: "store:users",
@@ -19,6 +21,8 @@ const usersPersistConfig = {
 
 const rootReducer = combineReducers({
     users: persistReducer(usersPersistConfig, usersReducer),
+    products: productsReducer,
+    categories: categoriesReducer,
 });
 
 export const store = configureStore({

@@ -46,10 +46,10 @@ const UserMenu: React.FC<Props> = ({ user }) => {
           },
         }}
         component={NavLink}
-        to="/add-new-post"
+        to="/add-new-product"
         color="inherit"
       >
-        Add new post
+        Add new product
       </Button>
       <Menu
         anchorEl={anchorEl}

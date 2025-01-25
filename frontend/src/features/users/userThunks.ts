@@ -22,7 +22,7 @@ export const register = createAsyncThunk<
   async (registerMutation: RegisterMutation, { rejectWithValue }) => {
     try {
       const response = await axiosApi.post<RegisterResponse>(
-        "/users",
+        "/users/register",
         registerMutation,
       );
       return response.data;
