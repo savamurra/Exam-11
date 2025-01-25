@@ -25,7 +25,7 @@ const OneProduct = () => {
 
     useEffect(() => {
         if (id) {
-            dispatch(getOneProduct(id))
+            dispatch(getOneProduct(id));
         }
     }, [dispatch, id]);
 
@@ -41,7 +41,6 @@ const OneProduct = () => {
             toast.error((error as { error: string }).error);
         }
     }
-
 
     return (
         <>
@@ -85,7 +84,7 @@ const OneProduct = () => {
                             <Typography gutterBottom variant="h5" component="div" sx={{color: '#3f87a6'}}>
                                 + {product.sellerInfo.phoneNumber}
                             </Typography>
-                            {user ? <Button variant="contained" style={{background: "#f69d3c"}} onClick={onDelete}
+                            {user?.username === product.sellerInfo.username ? <Button variant="contained" style={{background: "#f69d3c"}} onClick={onDelete}
                                             disabled={deleteLoading}>
                                 Delete
                             </Button> : null}

@@ -24,13 +24,13 @@ productsRouter.get('/:id', async (req, res, next) => {
     }
 
     try {
-        const product = await Product.findById(id).populate("category", '-_id name').populate("sellerInfo", "-_id displayName phoneNumber");
+        const product = await Product.findById(id).populate("category", '-_id name').populate("sellerInfo", "-_id displayName phoneNumber username");
         if (!product) res.status(404).send('Not Found');
         res.send(product);
     } catch (e) {
         next(e);
     }
-})
+});
 
 productsRouter.post('/', auth, imagesUpload.single('image'), async (req, res, next) => {
     const expressReq = req as RequestWithUser;

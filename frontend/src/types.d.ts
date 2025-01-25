@@ -21,6 +21,7 @@ export interface Product {
         name: string;
     };
     sellerInfo: {
+        username: string;
         displayName: string;
         phoneNumber: string;
     }

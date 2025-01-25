@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RegisterMutation } from "../../types";
+import {LoginMutation} from "../../types";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -17,7 +17,7 @@ import { Alert, IconButton, InputAdornment } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const RegisterPage = () => {
-  const [form, setForm] = useState<RegisterMutation>({
+  const [form, setForm] = useState<LoginMutation>({
     username: "",
     password: "",
   });

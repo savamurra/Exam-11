@@ -9,6 +9,7 @@ import {getProductByCategoryId} from "../../categories/categoryThunks.ts";
 import {selectProductByCategory} from "../../categories/categorySlice.ts";
 import ProductList from "./ProductList.tsx";
 import Spinner from "../../../components/UI/Spinner/Spinner.tsx";
+import Typography from "@mui/material/Typography";
 
 const Products = () => {
     const dispatch = useAppDispatch();
@@ -20,9 +21,19 @@ const Products = () => {
     useEffect(() => {
         dispatch(getProduct());
         if (id) {
-            dispatch(getProductByCategoryId(id))
+            dispatch(getProductByCategoryId(id));
         }
     }, [dispatch, id]);
+
+    if (products.length === 0) {
+        return (
+            <Box sx={{marginTop: '40px'}}>
+                <Typography variant="h3" component="div" style={{color:'#3f87a6'}}>
+                    Not products yet
+                </Typography>
+            </Box>
+        );
+    }
 
     return (
         <>

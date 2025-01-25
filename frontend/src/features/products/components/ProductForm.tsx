@@ -69,7 +69,7 @@ const ProductForm = () => {
             dispatch(createProduct(form)).unwrap();
             setForm(initialState);
             toast.success('Post was successfully created!');
-            navigate('/')
+            navigate('/');
         }
     }
 
