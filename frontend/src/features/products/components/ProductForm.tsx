@@ -34,9 +34,14 @@ const ProductForm = () => {
     const loading = useAppSelector(selectCreateLoading);
     const navigate = useNavigate();
 
+
+
     useEffect(() => {
+        if(!user) {
+            navigate("/login");
+        }
         dispatch(getCategories());
-    }, [dispatch])
+    }, [dispatch, user, navigate]);
 
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -138,6 +143,11 @@ const ProductForm = () => {
                             required
                             value={form.price}
                             onChange={inputChangeHandler}
+                            InputProps={{
+                                inputProps: {
+                                    min: 0
+                                }
+                            }}
                         />
                     </Grid>
                     <Grid>
@@ -172,12 +182,12 @@ const ProductForm = () => {
                             variant="contained"
                             fullWidth
                             sx={{
-                                background: "linear-gradient(90deg, #1E3A8A, #2563EB)",
+                                background: "linear-gradient(#e66465, #9198e5);",
                                 borderRadius: "20px",
                                 textTransform: "uppercase",
                                 padding: "12px",
                                 "&:hover": {
-                                    background: "linear-gradient(90deg, #2563EB, #1E3A8A)",
+                                    background: "linear-gradient(0.25turn, #e66465, #9198e5);)",
                                     transform: "scale(1.05)",
                                     boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
                                 },

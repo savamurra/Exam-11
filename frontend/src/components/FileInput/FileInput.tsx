@@ -50,7 +50,7 @@ const FileInput: React.FC<Props> = ({ name, label, onGetFile }) => {
           <Button
             variant="contained"
             onClick={activateInput}
-            sx={{ backgroundColor: "#3a8d1f" }}
+            sx={{ backgroundColor: "#e66465" }}
           >
             Browse
           </Button>

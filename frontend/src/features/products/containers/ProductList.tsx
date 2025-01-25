@@ -11,6 +11,17 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
+    if (products.length === 0) {
+        return (
+            <Box sx={{marginTop: '40px'}}>
+                <Typography variant="h3" component="div" style={{color:'#3f87a6'}}>
+                    Not products yet
+                </Typography>
+            </Box>
+        );
+    }
+
+
     return (
         <Box sx={{ display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" }}>
             {products.map((product) => {

@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {Product} from "../../types";
-import {createProduct, getOneProduct, getProduct} from "./productsThunks.ts";
+import {GlobalError, Product} from "../../types";
+import {createProduct, deleteProduct, getOneProduct, getProduct} from "./productsThunks.ts";
 import {RootState} from "../../app/store.ts";
 
 interface ProductsSlice {
@@ -9,6 +9,8 @@ interface ProductsSlice {
     getLoading: boolean;
     getOneLoading: boolean;
     createLoading: boolean;
+    deleteLoading: boolean;
+    error: GlobalError | null;
 }
 
 const initialState: ProductsSlice = {
@@ -17,6 +19,8 @@ const initialState: ProductsSlice = {
     getLoading: false,
     getOneLoading: false,
     createLoading: false,
+    deleteLoading: false,
+    error: null,
 }
 
 export const selectProducts = (state: RootState) => state.products.products;
@@ -49,6 +53,17 @@ const productsSlice = createSlice({
             })
             .addCase(getOneProduct.rejected, (state) => {
                 state.getOneLoading = false;
+            })
+            .addCase(deleteProduct.pending, (state) => {
+                state.deleteLoading = true;
+                state.error = null;
+            })
+            .addCase(deleteProduct.fulfilled, (state) => {
+                state.deleteLoading = false;
+            })
+            .addCase(deleteProduct.rejected, (state, { payload: error }) => {
+                state.deleteLoading = false;
+                state.error = error || null
             })
             .addCase(createProduct.pending, (state) => {
                 state.createLoading = true;

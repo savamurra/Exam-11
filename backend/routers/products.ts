@@ -89,10 +89,6 @@ productsRouter.delete('/:id', auth, async (req, res, next) => {
         res.send({message: 'Product deleted successfully', product});
 
     } catch (e){
-        if (e instanceof Error.ValidationError) {
-            res.status(400).send(e);
-            return;
-        }
         next(e);
     }
 })

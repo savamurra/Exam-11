@@ -6,6 +6,7 @@ import RegisterPage from "./features/users/RegisterPage.tsx";
 import LoginPage from "./features/users/LoginPage.tsx";
 import Products from "./features/products/containers/Products.tsx";
 import ProductForm from "./features/products/components/ProductForm.tsx";
+import OneProduct from "./features/products/containers/OneProduct.tsx";
 
 const App = () => {
 
@@ -20,6 +21,8 @@ const App = () => {
                 <Container maxWidth="xl">
                     <Routes>
                         <Route path='/' element={<Products/>}/>
+                        <Route path='/category/:id' element={<Products/>}/>
+                        <Route path='/product/:id' element={<OneProduct/>}/>
                         <Route path='/add-new-product' element={<ProductForm/>}/>
                         <Route path="/register" element={<RegisterPage/>}/>
                         <Route path="/login" element={<LoginPage/>}/>
