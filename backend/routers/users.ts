@@ -5,11 +5,13 @@ import User from "../models/User";
 
 const usersRouter = express.Router();
 
-usersRouter.post("/", async (req, res, next) => {
+usersRouter.post("/register", async (req, res, next) => {
     try {
         const user = new User({
             username: req.body.username,
             password: req.body.password,
+            displayName: req.body.displayName,
+            phoneNumber: req.body.phoneNumber
         });
 
         user.generateToken();
